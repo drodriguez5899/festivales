@@ -1,0 +1,72 @@
+<div style="margin: 40px;" class="card ">
+    <div style="background-color: lightsalmon;" class="card-header">
+      <h1 style="text-align: center;">Bienvenido:{{perfil.nombre}} {{perfil.apellidos}}</h1>
+    </div>
+    <div class="card-body">
+        <div *ngIf='activado && mensaje!=null' class="alert alert-primary" role="alert">
+            {{mensaje}}
+        </div>
+        <div class="alert alert-danger" role="alert"*ngIf='mensaje2'>
+            <strong>{{mensaje2}}</strong>
+        </div>
+        <p class="card-text"><b>Email: </b> {{perfil.email}}</p>
+        <p class="card-text"> <b>Telefono: </b>{{perfil.telefono}}</p>
+        <img src="{{perfil.imgSrc}}" width="200px">
+        <hr>
+        <button  class="button" (click)='mostrarEditar=!mostrarEditar'>Editar</button>
+        <button  class="button" (click)='mostrarEliminar=!mostrarEliminar'>Eliminar</button>
+        <hr>
+       
+        
+    </div>  
+</div>
+
+
+<div class="card"*ngIf='mostrarEditar'>
+    <div class="card-header h5 text-center">Para editar tu perfil</div>
+    <div class="card-body">
+        <form [formGroup]="formPerfil" (submit)="editarPerfil()">
+            <label for="nombre">Nombre</label><input type="text" formControlName="nombre" placeholder="nombre">
+            <label for="apellidos">Apellidos</label><input type="text" formControlName="apellidos" placeholder="apellidos">
+            <label for="password">Contraseña</label><input type="text" formControlName="password" placeholder="password">
+            <label for="email">Email</label><input type="text" formControlName="email" placeholder="email">
+            <label for="telefono">Telefono</label><input type="number" formControlName="telefono" placeholder="telefono">
+            <button type="submit" [disabled]="!formPerfil.valid">Guardar cambios</button>
+            <button (click)='mostrarEditar=!mostrarEditar'>Cancelar</button>
+        </form>        
+        <button (click)='mostrarEditar=!mostrarEditar'>Editar</button>
+    </div>
+</div>
+<div class="card"*ngIf='mostrarEliminar'>
+    <div class="card-header h5 text-center">Para eliminar tu perfil introduce tu email</div>
+    <div class="card-body">
+       <input type="text" [(ngModel)]='inputBorrar' placeholder="email">
+       <button (click)='mostrarEliminar=!mostrarEliminar; inputBorrar="" '>Cancelar</button>
+       <button (click)='eliminarUsuario()' [disabled]='inputBorrar!=perfil.email'>Eliminar</button>
+    </div>
+</div>
+
+
+<div class="card"*ngIf='mostrarEditar'>
+    <div class="card-header h5 text-center">Para editar tu perfil</div>
+    <div class="card-body">
+        <form [formGroup]="formPerfil" (submit)="editarPerfil()">
+            <label for="nombre">Nombre</label><input type="text" formControlName="nombre" placeholder="nombre">
+            <label for="apellidos">Apellidos</label><input type="text" formControlName="apellidos" placeholder="apellidos">
+            <label for="password">Contraseña</label><input type="text" formControlName="password" placeholder="password">
+            <label for="email">Email</label><input type="text" formControlName="email" placeholder="email">
+            <label for="telefono">Telefono</label><input type="number" formControlName="telefono" placeholder="telefono">
+            <button type="submit" [disabled]="!formPerfil.valid">Guardar cambios</button>
+            <button (click)='mostrarEditar=!mostrarEditar'>Cancelar</button>
+        </form>        
+        <button (click)='mostrarEditar=!mostrarEditar'>Editar</button>
+    </div>
+</div>
+<div class="card"*ngIf='mostrarEliminar'>
+    <div class="card-header h5 text-center">Para eliminar tu perfil introduce tu email</div>
+    <div class="card-body">
+       <input type="text" [(ngModel)]='inputBorrar' placeholder="email">
+       <button (click)='mostrarEliminar=!mostrarEliminar; inputBorrar="" '>Cancelar</button>
+       <button (click)='eliminarUsuario()' [disabled]='inputBorrar!=perfil.email'>Eliminar</button>
+    </div>
+</div>

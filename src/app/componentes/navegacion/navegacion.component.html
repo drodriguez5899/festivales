@@ -1,0 +1,143 @@
+       
+<nav style="margin: 0;" class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="dropdown">
+    <input type="checkbox" id="abrir-cerrar" name="abrir-cerrar" value="">
+          <label for="abrir-cerrar">&#9776; <span class="abrir"></span><span class="cerrar"></span></label>
+          <div id="sidebar" class="sidebar">
+              <ul class="menu">
+                  <li><a href="">Inicio</a></li>
+                  <li class="nav-item dropdown">
+                    <a style="color:white"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Destacados
+                    </a>
+                    <div style="background-color: brown; color: white" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="">Mundo</a>
+                      <a class="dropdown-item" href = ''>España</a>            
+                    </div>
+                  </li> 
+                  <li class="nav-item dropdown">
+                    <a style="color:white"   id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Otros
+                    </a>
+                    <div style="background-color: brown;  color: white" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="">Todos los estilos</a>
+                      <a class="dropdown-item" href = ''>Electronica</a>
+                      <a class="dropdown-item" href = ''>Reggaetón/Hip Hop</a>  
+                      <a class="dropdown-item" href = ''>Pop/Indie</a>  
+                      <a class="dropdown-item" href = ''>Rock/Metal/Punk</a>              
+                      <a class="dropdown-item" href = ''>Multigenero/World Music</a>  
+                    </div>
+                  </li> 
+                  <li><a href="#">Favoritos</a></li>
+                  <li><a  href = "/foro">Foro</a></li>
+              </ul>
+          </div>
+   
+    
+</div>
+ 
+  
+<div  class="collapse navbar-collapse" id="navbarSupportedContent"> 
+  <div  class="mr-auto">
+  </div>
+  <div  class="mr-auto">       
+    <h1 style="color: wheat;"> <img width="70px" src='assets/imagenes/logoF2.png'> &nbsp;&nbsp;     Festivales</h1>
+  </div>
+  <form class="form-inline my-2 my-lg-0" >
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>        
+  </form>     
+  
+  <ul  class="navbar-nav   mt-2 mt-lg-0">
+    <ng-template  [ngIf]='!fnLogged()' [ngIfElse]='salir'>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Iniciar Session
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/login">login</a>
+          <a class="dropdown-item" routerLink = '/registro'>Registrar</a>            
+        </div>
+      </li> 
+    </ng-template>
+    <ng-template  #salir>
+      <li class="nav-item">
+        <a class="nav-link" routerLink = '/perfil'> <i class="fas fa-user"> Perfil</i> </a>
+    </li>    
+    <li class="nav-item">
+        <a class="nav-link"(click)="doLogout()" routerLink='.'> <i class="fas fa-sign-out-alt"> Logout</i></a>
+    </li>
+    </ng-template>
+  </ul>
+  
+  
+</div>
+  </nav>
+<!-- 
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="dropdown">
+      <input type="checkbox" id="abrir-cerrar" name="abrir-cerrar" value="">
+      <label for="abrir-cerrar">&#9776; <span class="abrir"></span><span class="cerrar"></span></label>
+      <div id="sidebar" class="sidebar">
+          <ul class="menu">
+            <li class="nav-item active">
+              <a class="nav-link" routerLink = ''>Inicio <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Destacados</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Otros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Favoritos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Foro</a>
+            </li>
+                   
+          </ul>
+      </div>
+      
+  </div>
+   
+    
+      <div  class="collapse navbar-collapse" id="navbarSupportedContent"> 
+        <div  class="mr-auto">
+        </div>
+        <div  class="mr-auto">       
+          <h1 style="color: wheat;"> <img width="70px" src='assets/imagenes/logoF2.png'> &nbsp;&nbsp;     Festivales</h1>
+        </div>
+        <form class="form-inline my-2 my-lg-0" >
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>        
+        </form>     
+        
+        <ul  class="navbar-nav   mt-2 mt-lg-0">
+          <ng-template  [ngIf]='!fnLogged()' [ngIfElse]='salir'>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Iniciar Session
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" routerLink="/login">login</a>
+                <a class="dropdown-item" routerLink = '/registro'>Registrar</a>            
+              </div>
+            </li> 
+          </ng-template>
+          <ng-template  #salir>
+            <li class="nav-item">
+              <a class="nav-link" routerLink = '/perfil'> <i class="fas fa-user"> Perfil</i> </a>
+          </li>    
+          <li class="nav-item">
+              <a class="nav-link"(click)="doLogout()" routerLink='.'> <i class="fas fa-sign-out-alt"> Logout</i></a>
+          </li>
+          </ng-template>
+        </ul>
+        
+        
+      </div>
+    </nav>
+   
+-->

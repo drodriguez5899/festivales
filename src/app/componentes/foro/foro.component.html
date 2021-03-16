@@ -1,0 +1,60 @@
+<header id="foro">
+    <h1 style="font-size: 50px;">Comparte con nosotros tu experiencia</h1>
+</header>
+
+<div style="margin: 40px;" class="card ">
+    <div style="background-color: lightsalmon;" class="card-header">
+      <h1 style="text-align: center;">Crud</h1>
+    </div> <br>
+    <div class="card-body">
+      <div class="container">  
+        <div class="row">
+          <div class="col">
+            <h3 style="font-family: 'Libre Baskerville', serif;">Formulario con FormGroup</h3>
+            <form [formGroup]="formNuevo" (ngSubmit)='crearMensaje(formNuevo.value)' action="">
+              <input type="text" class="form-control" formControlName="titulo" placeholder="titulo">
+              <input type="text" class="form-control" formControlName="contenido" placeholder="contenido">
+              <button class="btn btn-primary" type="submit" *ngIf='!formNuevo.value.id; else editar' [disabled]='formNuevo.invalid'>Crear Nota</button>
+              <ng-template #editar>
+                <button class="btn btn-danger" type='button'
+                  (click)='eliminarMensaje()' [disabled]='!formNuevo.value.id'>Eliminar nota</button>
+                <button class="btn btn-primary" type="button" (click)='editarMensaje()' [disabled]='formNuevo.invalid'>Editar Nota</button>
+                <button class="btn btn-primary" type="button" (click)='formNuevo.reset()'>Cancelar Nota</button>
+              </ng-template>
+            </form>
+          </div>
+          
+        </div>
+        <br> <br>
+        <div class="row">
+            <div class="col">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Titulo</th>
+                    <th>Contenido</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr [ngClass]='{"text-white bg-dark":mensaje.idUser}'(click)=' mensaje.idUser ? formNuevo.patchValue(mensaje):formNuevo.reset()' *ngFor="let mensaje of mensajes">
+                    <td>{{mensaje.id}}</td>
+                    <td>{{mensaje.titulo}}</td>
+                    <td>{{mensaje.contenido}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div *ngIf='creada' class="alert alert-success" role="alert">Se ha creado correctamente la nota</div>
+              <div *ngIf='eliminada' class="alert alert-success" role="alert">Se ha eliminado correctamente la nota</div>
+              <div *ngIf='editada' class="alert alert-success" role="alert">Se ha editado correctamente la nota</div>
+            </div>
+          </div> <hr>
+       
+    
+      </div>         
+    </div>  
+  </div>

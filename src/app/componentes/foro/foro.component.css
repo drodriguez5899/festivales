@@ -1,0 +1,15 @@
+#foro{
+    background-size: cover;
+    background-image: url(https://images3.alphacoders.com/167/thumb-1920-167859.jpg);
+    color:sandybrown;
+    text-shadow: 3px 3px 3px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-attachment: fixed;
+    border-radius: 10px;
+    height: 250px;
+    width: 100%;
+    font-family: Lobster,cursive;
+    
+}

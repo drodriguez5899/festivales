@@ -1,0 +1,15 @@
+#cabeceraRegistro{
+    padding: 25px;
+    border: 2px solid black;
+    background-image: url(https://i.pinimg.com/originals/d0/c2/fc/d0c2fc800ed8ff8947e4ebf2d55e8555.jpg);
+    background-repeat: no-repeat;
+    
+    text-shadow: 3px 3px 3px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Lobster,cursive;    
+}
+*{
+    color:maroon;
+}
