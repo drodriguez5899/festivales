@@ -29,7 +29,7 @@ export class UsuariosService {
     return this.http.delete(url)
   }
 
-  subirImagen(entrada): Observable<any>{
+  subirImagen(entrada:any): Observable<any>{
     return this.http.post(url+'image/', entrada)
   }
   
