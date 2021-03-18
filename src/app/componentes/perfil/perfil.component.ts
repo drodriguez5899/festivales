@@ -12,22 +12,24 @@ import { telefonoValido } from 'src/app/validaciones/validaciones';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
-  perfil:User = {}
+  perfil: User = {}
   mostrarEditar: boolean=false
   mostrarEliminar: boolean=false
   inputBorrar: string = ''
-  mensaje:string =''
-  mensaje2:string =''
+  mensaje:string=''
+  mensaje2:string=''
   activado:boolean=false
   formPerfil=this.fb.group({
     nombre:[''],
     apellidos:[''],
     password:['',Validators.minLength(4)],
-    email:['', [Validators.required, Validators.email]],
+    email:['', [Validators.required]],
+    pais:['', [Validators.required]],
+    sexo:['', [Validators.required]],
     telefono:[undefined, [telefonoValido()]],
   })
   formImagen = this.fb.group({
-    imagen:['',Validators.required]
+    imagen: ['', Validators.required]
   })
 
   constructor(private fb:FormBuilder, private servicioUsuario:UsuariosService, private irHacia:Router) { }
@@ -63,7 +65,7 @@ export class PerfilComponent implements OnInit {
     )
   }
   eliminarUsuario():void{
-    this.servicioUsuario.eliminarPerfil().subscribe(
+    this.servicioUsuario.eliminarUsuario().subscribe(
       respuesta => {
         console.log(respuesta)
         this.servicioUsuario.logOut()
@@ -77,8 +79,24 @@ export class PerfilComponent implements OnInit {
       } 
     )
   }
-  
-
-
-
+  /*subirImagen():void{
+    const formData = new FormData()
+    formData.append('imagen',this.formImagen.get('imagen').value)
+    this.servicioUsuario.subirImagen(formData).subscribe(
+      respuesta => {
+        console.log(respuesta)
+        this.cargarPerfil()
+        this.activado= true
+        this.mensaje="se ha subido una imagen correctamente"
+      },
+      error =>{console.log(error)}
+    )
+  }
+  cambiaImagen(evento):void{
+    if(evento.target.files){
+      this.formImagen.get('imagen').setValue(evento.target.files[0])
+      this.activado= true
+        this.mensaje="se ha ha cambiado la imagen correctamente"
+    }
+  }*/
 }

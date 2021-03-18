@@ -13,3 +13,28 @@
     font-family: Lobster,cursive;
     
 }
+
+
+#mensajeForo{
+    background-color:lightgoldenrodyellow;
+    margin: 80px;
+    border: 2px solid red;
+    border-radius: 20px;
+    box-shadow: 0 0 6px 0 black;
+    padding: 30px;    
+    font-family: Lobster,cursive;
+   
+}
+#mensaje{
+    background-color:lightgoldenrodyellow;
+    padding: 50px;;
+
+}
+#usuario{
+    border: 2px solid red;
+    border-radius: 20px;
+    background-color: aquamarine;
+    padding: 40px;
+    color: red;
+    font-family: 'Akaya Kanadaka', cursive;
+}

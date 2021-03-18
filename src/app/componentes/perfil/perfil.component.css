@@ -1,0 +1,33 @@
+#cabecera{
+    text-align: center;
+    height: 300px;
+    padding: 12px;
+    background-image: url(https://images6.alphacoders.com/107/1077410.png);
+}
+#avatar{
+   width: 250px;
+   height: 200px; 
+   border-radius: 50%;
+}
+#nombreU{
+    font-size: 40px;
+    margin-top: 14px;
+    color: darkmagenta;
+    font-family: Lobster,cursive;
+}
+#datos{
+    margin: 20px;
+    padding: 10px;
+    background-color: wheat;
+    color: darkmagenta;
+    padding: 40px;
+    
+}
+#datos h3{
+    font-size: 50px;
+    font-family: Lobster,cursive;
+}
+#datos p{
+    padding: 5px;  
+    font-size: 25px;
+}

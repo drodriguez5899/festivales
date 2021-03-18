@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
+import "@angular/common/locales/global/es";
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +13,7 @@ import { RegistroComponent } from './componentes/registro/registro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ForoComponent } from './componentes/foro/foro.component';
+import { EnviartokenInterceptor } from './auth/enviartoken.interceptor';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,7 @@ import { ForoComponent } from './componentes/foro/foro.component';
   ],
   providers:[
     {provide: LOCALE_ID, useValue:"es"},
-    ],
+    {provide:HTTP_INTERCEPTORS, useClass:EnviartokenInterceptor, multi:true}    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

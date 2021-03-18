@@ -19,12 +19,10 @@ export class LoginComponent implements OnInit {
   constructor(private fb:FormBuilder, private servicioUsuario:UsuariosService, private irHacia:Router) { }
 
   ngOnInit(): void {
-    if (this.servicioUsuario.isLogged()){
-      this.irHacia.navigate(['/perfil'])
-    }
+  
  
   }
-  login():void{ 
+  login(){ 
       this.servicioUsuario.acceso(this.formLogin.value).subscribe(
         respuesta => {
           console.log(respuesta)

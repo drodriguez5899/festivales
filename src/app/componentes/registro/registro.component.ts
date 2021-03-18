@@ -19,7 +19,6 @@ export class RegistroComponent implements OnInit {
     password2:['',[Validators.required]],
     sexo:['',[Validators.required]],
     pais:['',[Validators.required]],
-    imagen:[undefined,[Validators.required]],
     email:['', [Validators.required, Validators.email]],
     telefono:[undefined, [telefonoValido()]]
   })

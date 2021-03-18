@@ -28,12 +28,9 @@
     </div>
     <div class="form-group">
         <label for="email">Email</label>
-        <input  class="form-control" type="text" formControlName="email" placeholder="email">                  
+        <input  class="form-control" type="email" formControlName="email" placeholder="email">                  
     </div>
-    <div class="form-group">
-        <label for="email">imagen</label>
-        <input  class="form-control" type="text" formControlName="imagen" placeholder="email">                  
-    </div>
+
     <div class="form-group">
         <label for="sexo">Sexo</label> <br>
         <input formControlName="sexo" type="radio" id="masculino" name="sexo" value="masculino">
@@ -291,5 +288,5 @@
         <label for="telefono">Telefono</label>
         <input  class="form-control" type="number" formControlName="telefono" placeholder="telefono">                 
     </div>
-    <button type="submit" [disabled]="!formRegistro.valid">Registrar</button>
+    <button class=" btn btn-block mybtn btn-primary tx-tfm" type="submit" [disabled]="!formRegistro.valid">Registrar</button>
   </form>
